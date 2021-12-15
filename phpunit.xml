@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+>
+    <testsuites>
+        <testsuite name="Unit">
+            <directory suffix="Test.php">./tests</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <server name="TRIPAY_API_PRODUCTION" value="false"/>
+        <server name="TRIPAY_API_KEY" value="DEV-KhrbQJg1ABxlaGsHSKqlV4h6CSRvEURa2aZ6LmGw"/>
+        <server name="TRIPAY_PRIVATE_KEY" value="YCj5t-2XCgh-sUrZW-HNayW-ZqvK3"/>
+        <server name="TRIPAY_MERCHANT_CODE" value="T8355"/>
+    </php>
+</phpunit>

@@ -1,0 +1,55 @@
+{
+    "name": "nekoding/tripay",
+    "description": "Tripay PHP Client for Laravel",
+    "keywords": [
+        "nekoding",
+        "tripay"
+    ],
+    "homepage": "https://github.com/nekoding/tripay",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "enggar tivandi",
+            "email": "enggartivandi@outlook.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "guzzlehttp/guzzle": "^7.4",
+        "illuminate/support": "^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Nekoding\\Tripay\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Nekoding\\Tripay\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Nekoding\\Tripay\\TripayServiceProvider"
+            ],
+            "aliases": {
+                "Tripay": "Nekoding\\Tripay\\TripayFacade"
+            }
+        }
+    }
+}
