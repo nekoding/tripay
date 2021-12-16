@@ -3,6 +3,7 @@
 namespace Nekoding\Tripay;
 
 use Illuminate\Support\ServiceProvider;
+use Nekoding\Tripay\Networks\HttpClient;
 
 class TripayServiceProvider extends ServiceProvider
 {
@@ -54,7 +55,7 @@ class TripayServiceProvider extends ServiceProvider
 
         // Register the main class to use with the facade
         $this->app->singleton('tripay', function () {
-            return new Tripay;
+            return new Tripay(new HttpClient(config('tripay.tripay_api_key')));
         });
     }
 }
