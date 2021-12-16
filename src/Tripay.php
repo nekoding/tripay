@@ -5,11 +5,13 @@ namespace Nekoding\Tripay;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
+use Nekoding\Tripay\Exceptions\InvalidCredentialException;
 use Nekoding\Tripay\Exceptions\InvalidTransactionException;
 use Nekoding\Tripay\Networks\HttpClient;
 use Nekoding\Tripay\Transactions\CloseTransaction;
 use Nekoding\Tripay\Transactions\OpenTransaction;
 use Nekoding\Tripay\Transactions\Transaction;
+
 class Tripay
 {
 
@@ -48,8 +50,7 @@ class Tripay
         string $payCode,
         string $amount,
         int $allowHtml = 1
-    ): Collection 
-    {
+    ): Collection {
         $data = [
             'code'          => $code,
             'pay_code'      => $payCode,
@@ -167,5 +168,26 @@ class Tripay
         }
 
         throw new InvalidTransactionException("metode yang digunakan tidak didukung.");
+    }
+
+    /**
+     * Load configuration
+     *
+     * @param bool $isProduction
+     * @param string $apiKey
+     * @param string $privateKey
+     * @param string $merchantCode
+     * @return void
+     */
+    public static function loadConfig(
+        bool $isProduction,
+        string $apiKey,
+        string $privateKey,
+        string $merchantCode
+    ): void {
+        config(['tripay.tripay_api_production'  => $isProduction]);
+        config(['tripay.tripay_api_key'         => $apiKey]);
+        config(['tripay.tripay_private_key'     => $privateKey]);
+        config(['tripay.tripay_merchant_code'   => $merchantCode]);
     }
 }

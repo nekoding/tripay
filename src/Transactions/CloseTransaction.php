@@ -4,6 +4,7 @@ namespace Nekoding\Tripay\Transactions;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Validator;
+use Nekoding\Tripay\Exceptions\InvalidCredentialException;
 use Nekoding\Tripay\Exceptions\InvalidSignatureHashException;
 use Nekoding\Tripay\Networks\HttpClient;
 use Nekoding\Tripay\Signature;
@@ -42,9 +43,9 @@ class CloseTransaction implements Transaction
         $validated = CreateCloseTransactionFormValidation::validate($data);
 
         if (!Signature::validate(
-            $this->setSignatureHash($validated['merchant_ref'] . $validated['amount']), 
-            $validated['signature'])
-            ) {
+            $this->setSignatureHash($validated['merchant_ref'] . $validated['amount']),
+            $validated['signature']
+        )) {
             throw new InvalidSignatureHashException("signature hash tidak valid.");
         }
 
@@ -82,9 +83,16 @@ class CloseTransaction implements Transaction
     /**
      * @param string $data
      * @return string
+     * @throws \Nekoding\Tripay\Exceptions\InvalidCredentialException
      */
     public function setSignatureHash(string $data): string
     {
-        return config('tripay.tripay_merchant_code') . $data;
+        $merchantCode = config('tripay.tripay_merchant_code');
+
+        if (!!$merchantCode) {
+            return $merchantCode . $data;
+        }
+
+        throw new InvalidCredentialException("gagal melakukan hash. merchant code belum dikonfigurasi.");
     }
 }

@@ -9,7 +9,6 @@ use Nekoding\Tripay\Exceptions\InvalidSignatureHashException;
 use Nekoding\Tripay\Networks\HttpClient;
 use Nekoding\Tripay\Signature;
 use Nekoding\Tripay\Validator\CreateOpenTransactionFormValidation;
-use Psr\Http\Message\ResponseInterface;
 
 class OpenTransaction implements Transaction
 {
@@ -42,15 +41,15 @@ class OpenTransaction implements Transaction
     public function createTransaction(array $data): Transaction
     {
         if (!config('tripay.tripay_api_production')) {
-            throw new InvalidCredentialException("tidak dapat menggunakan tipe ini jika konfigurasi api sandbox.");
+            throw new InvalidCredentialException("tidak dapat menggunakan api ini dalam mode sandbox.");
         }
 
         $validated = CreateOpenTransactionFormValidation::validate($data);
 
         if (!Signature::validate(
-            $this->setSignatureHash($validated['method'] . $validated['merchant_ref']), 
-            $validated['signature'])) 
-        {
+            $this->setSignatureHash($validated['method'] . $validated['merchant_ref']),
+            $validated['signature']
+        )) {
             throw new InvalidSignatureHashException("siganture hash salah. silahkan coba lagi.");
         }
 
@@ -88,9 +87,44 @@ class OpenTransaction implements Transaction
     /**
      * @param string $data
      * @return string
+     * @throws \Nekoding\Tripay\Exceptions\InvalidCredentialException
      */
     public function setSignatureHash(string $data): string
     {
-        return config('tripay.tripay_merchant_code') . $data;
+
+        $merchantCode = config('tripay.tripay_merchant_code');
+
+        if (!!$merchantCode) {
+            return $merchantCode . $data;
+        }
+
+        throw new InvalidCredentialException("gagal melakukan hash. merchant code belum dikonfigurasi.");
+    }
+
+    /**
+     * @param  string $uuid
+     * @param  array $data
+     * @return Transaction
+     * @throws \Nekoding\Tripay\Exceptions\InvalidCredentialException
+     */
+    public function getDaftarPembayaran(string $uuid, array $data = []): Transaction
+    {
+        if (!config('tripay.tripay_api_production')) {
+            throw new InvalidCredentialException("tidak dapat menggunakan api ini dalam mode sandbox.");
+        }
+
+        $validatedData = Validator::make($data, [
+            'reference'     => 'bail|nullable|string',
+            'merchant_ref'  => 'bail|nullable|string',
+            'start_date'    => 'bail|nullable|string|date_format:Y-m-d H:i:s',
+            'end_date'      => 'bail|nullable|string|date_format:Y-m-d H:i:s',
+            'per_page'      => 'bail|nullable|int'
+        ])->validate();
+
+        $endpoint = "open-payment/" . $uuid . "/transactions";
+
+        $this->response = $this->httpClient->sendRequest('GET', $endpoint, $validatedData);
+
+        return $this;
     }
 }
