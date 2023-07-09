@@ -1,0 +1,314 @@
+{
+  "success": true,
+  "message": "Success",
+  "data": [
+    {
+      "group": "Virtual Account",
+      "code": "MYBVA",
+      "name": "Maybank Virtual Account",
+      "type": "direct",
+      "fee_merchant": {
+        "flat": 4250,
+        "percent": 0
+      },
+      "fee_customer": {
+        "flat": 0,
+        "percent": 0
+      },
+      "total_fee": {
+        "flat": 4250,
+        "percent": "0.00"
+      },
+      "minimum_fee": 4000,
+      "maximum_fee": 4500,
+      "icon_url": "https://tripay.co.id/xxxxxxxxx.png",
+      "active": true
+    },
+    {
+      "group": "Virtual Account",
+      "code": "PERMATAVA",
+      "name": "Permata Virtual Account",
+      "type": "direct",
+      "fee_merchant": {
+        "flat": 4250,
+        "percent": 0
+      },
+      "fee_customer": {
+        "flat": 0,
+        "percent": 0
+      },
+      "total_fee": {
+        "flat": 4250,
+        "percent": "0.00"
+      },
+      "minimum_fee": 4000,
+      "maximum_fee": 4500,
+      "icon_url": "https://tripay.co.id/xxxxxxxxx.png",
+      "active": true
+    },
+    {
+      "group": "Virtual Account",
+      "code": "BNIVA",
+      "name": "BNI Virtual Account",
+      "type": "direct",
+      "fee_merchant": {
+        "flat": 4250,
+        "percent": 0
+      },
+      "fee_customer": {
+        "flat": 0,
+        "percent": 0
+      },
+      "total_fee": {
+        "flat": 4250,
+        "percent": "0.00"
+      },
+      "minimum_fee": 4000,
+      "maximum_fee": 4500,
+      "icon_url": "https://tripay.co.id/xxxxxxxxx.png",
+      "active": true
+    },
+    {
+      "group": "Virtual Account",
+      "code": "BRIVA",
+      "name": "BRI Virtual Account",
+      "type": "direct",
+      "fee_merchant": {
+        "flat": 4250,
+        "percent": 0
+      },
+      "fee_customer": {
+        "flat": 0,
+        "percent": 0
+      },
+      "total_fee": {
+        "flat": 4250,
+        "percent": "0.00"
+      },
+      "minimum_fee": 4000,
+      "maximum_fee": 4500,
+      "icon_url": "https://tripay.co.id/xxxxxxxxx.png",
+      "active": true
+    },
+    {
+      "group": "Virtual Account",
+      "code": "MANDIRIVA",
+      "name": "Mandiri Virtual Account",
+      "type": "direct",
+      "fee_merchant": {
+        "flat": 4250,
+        "percent": 0
+      },
+      "fee_customer": {
+        "flat": 0,
+        "percent": 0
+      },
+      "total_fee": {
+        "flat": 4250,
+        "percent": "0.00"
+      },
+      "minimum_fee": 4000,
+      "maximum_fee": 4500,
+      "icon_url": "https://tripay.co.id/xxxxxxxxx.png",
+      "active": true
+    },
+    {
+      "group": "Virtual Account",
+      "code": "BCAVA",
+      "name": "BCA Virtual Account",
+      "type": "direct",
+      "fee_merchant": {
+        "flat": 5500,
+        "percent": 0
+      },
+      "fee_customer": {
+        "flat": 0,
+        "percent": 0
+      },
+      "total_fee": {
+        "flat": 5500,
+        "percent": "0.00"
+      },
+      "minimum_fee": 5500,
+      "maximum_fee": 6000,
+      "icon_url": "https://tripay.co.id/xxxxxxxxx.png",
+      "active": true
+    },
+    {
+      "group": "Virtual Account",
+      "code": "SMSVA",
+      "name": "Sinarmas Virtual Account",
+      "type": "direct",
+      "fee_merchant": {
+        "flat": 4250,
+        "percent": 0
+      },
+      "fee_customer": {
+        "flat": 0,
+        "percent": 0
+      },
+      "total_fee": {
+        "flat": 4250,
+        "percent": "0.00"
+      },
+      "minimum_fee": 4000,
+      "maximum_fee": 4500,
+      "icon_url": "https://tripay.co.id/xxxxxxxxx.png",
+      "active": true
+    },
+    {
+      "group": "Virtual Account",
+      "code": "MUAMALATVA",
+      "name": "Muamalat Virtual Account",
+      "type": "direct",
+      "fee_merchant": {
+        "flat": 4250,
+        "percent": 0
+      },
+      "fee_customer": {
+        "flat": 0,
+        "percent": 0
+      },
+      "total_fee": {
+        "flat": 4250,
+        "percent": "0.00"
+      },
+      "minimum_fee": 4000,
+      "maximum_fee": 4500,
+      "icon_url": "https://tripay.co.id/xxxxxxxxx.png",
+      "active": true
+    },
+    {
+      "group": "Virtual Account",
+      "code": "CIMBVA",
+      "name": "CIMB Virtual Account",
+      "type": "direct",
+      "fee_merchant": {
+        "flat": 4250,
+        "percent": 0
+      },
+      "fee_customer": {
+        "flat": 0,
+        "percent": 0
+      },
+      "total_fee": {
+        "flat": 4250,
+        "percent": "0.00"
+      },
+      "minimum_fee": 4000,
+      "maximum_fee": 4500,
+      "icon_url": "https://tripay.co.id/xxxxxxxxx.png",
+      "active": true
+    },
+    {
+      "group": "Virtual Account",
+      "code": "SAMPOERNAVA",
+      "name": "Sahabat Sampoerna Virtual Account",
+      "type": "direct",
+      "fee_merchant": {
+        "flat": 4250,
+        "percent": 0
+      },
+      "fee_customer": {
+        "flat": 0,
+        "percent": 0
+      },
+      "total_fee": {
+        "flat": 4250,
+        "percent": "0.00"
+      },
+      "minimum_fee": 4000,
+      "maximum_fee": 4500,
+      "icon_url": "https://tripay.co.id/xxxxxxxxx.png",
+      "active": true
+    },
+    {
+      "group": "Convenience Store",
+      "code": "ALFAMART",
+      "name": "Alfamart",
+      "type": "direct",
+      "fee_merchant": {
+        "flat": 6000,
+        "percent": 0
+      },
+      "fee_customer": {
+        "flat": 0,
+        "percent": 0
+      },
+      "total_fee": {
+        "flat": 6000,
+        "percent": "0.00"
+      },
+      "minimum_fee": 5500,
+      "maximum_fee": 6500,
+      "icon_url": "https://tripay.co.id/xxxxxxxxx.png",
+      "active": true
+    },
+    {
+      "group": "Convenience Store",
+      "code": "INDOMARET",
+      "name": "Indomaret",
+      "type": "direct",
+      "fee_merchant": {
+        "flat": 3500,
+        "percent": 0
+      },
+      "fee_customer": {
+        "flat": 0,
+        "percent": 0
+      },
+      "total_fee": {
+        "flat": 3500,
+        "percent": "0.00"
+      },
+      "minimum_fee": 3000,
+      "maximum_fee": 4000,
+      "icon_url": "https://tripay.co.id/xxxxxxxxx.png",
+      "active": true
+    },
+    {
+      "group": "Convenience Store",
+      "code": "ALFAMIDI",
+      "name": "Alfamidi",
+      "type": "direct",
+      "fee_merchant": {
+        "flat": 6000,
+        "percent": 0
+      },
+      "fee_customer": {
+        "flat": 0,
+        "percent": 0
+      },
+      "total_fee": {
+        "flat": 6000,
+        "percent": "0.00"
+      },
+      "minimum_fee": 5500,
+      "maximum_fee": 6500,
+      "icon_url": "https://tripay.co.id/xxxxxxxxx.png",
+      "active": true
+    },
+    {
+      "group": "E-Wallet",
+      "code": "QRIS",
+      "name": "QRIS by ShopeePay",
+      "type": "direct",
+      "fee_merchant": {
+        "flat": 750,
+        "percent": 0.7
+      },
+      "fee_customer": {
+        "flat": 0,
+        "percent": 0
+      },
+      "total_fee": {
+        "flat": 750,
+        "percent": "0.70"
+      },
+      "minimum_fee": 750,
+      "maximum_fee": 1000,
+      "icon_url": "https://tripay.co.id/xxxxxxxxx.png",
+      "active": true
+    }
+  ]
+}

@@ -24,8 +24,9 @@ interface Transaction
     public function getDetailTransaction(string $refNumber): self;
 
     /**
-     * @param string $data
+     * @param array $data
      * @return string
+     * @throws \Nekoding\Tripay\Exceptions\InvalidCredentialException
      */
-    public function setSignatureHash(string $data): string;
+    public function setSignatureHash(array $data): string;
 }

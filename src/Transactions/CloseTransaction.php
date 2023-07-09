@@ -43,7 +43,7 @@ class CloseTransaction implements Transaction
         $validated = CreateCloseTransactionFormValidation::validate($data);
 
         if (!Signature::validate(
-            $this->setSignatureHash($validated['merchant_ref'] . $validated['amount']),
+            $this->setSignatureHash($validated),
             $validated['signature']
         )) {
             throw new InvalidSignatureHashException("signature hash tidak valid.");
@@ -80,19 +80,12 @@ class CloseTransaction implements Transaction
         return collect(json_decode($this->response, true));
     }
 
-    /**
-     * @param string $data
-     * @return string
-     * @throws \Nekoding\Tripay\Exceptions\InvalidCredentialException
-     */
-    public function setSignatureHash(string $data): string
+    public function setSignatureHash(array $data): string
     {
-        $merchantCode = config('tripay.tripay_merchant_code');
-
-        if (!!$merchantCode) {
-            return $merchantCode . $data;
+        if (isset($data['merchant_ref']) && isset($data['amount'])) {
+            return $data['merchant_ref'] . $data['amount'];
         }
 
-        throw new InvalidCredentialException("gagal melakukan hash. merchant code belum dikonfigurasi.");
+        throw new InvalidCredentialException("gagal melakukan hash. data merchant_ref atau amount belum dikonfigurasi");
     }
 }

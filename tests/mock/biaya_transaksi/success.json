@@ -1,0 +1,20 @@
+{
+  "success": true,
+  "message": "",
+  "data": [
+    {
+      "code": "QRIS",
+      "name": "QRIS",
+      "fee": {
+        "flat": 750,
+        "percent": "0.70",
+        "min": null,
+        "max": null
+      },
+      "total_fee": {
+        "merchant": 1450,
+        "customer": 0
+      }
+    }
+  ]
+}

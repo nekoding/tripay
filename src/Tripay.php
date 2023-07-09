@@ -4,9 +4,8 @@ namespace Nekoding\Tripay;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\ValidationException;
-use Nekoding\Tripay\Exceptions\InvalidCredentialException;
 use Nekoding\Tripay\Exceptions\InvalidTransactionException;
+use Nekoding\Tripay\Exceptions\TripayValidationException;
 use Nekoding\Tripay\Networks\HttpClient;
 use Nekoding\Tripay\Transactions\CloseTransaction;
 use Nekoding\Tripay\Transactions\OpenTransaction;
@@ -16,11 +15,12 @@ class Tripay
 {
 
     /**
-     *
+     * Open transaction
      */
     const OPEN_TRANSACTION = 'open';
+
     /**
-     *
+     * Close transaction
      */
     const CLOSE_TRANSACTION = 'close';
 
@@ -47,8 +47,8 @@ class Tripay
      */
     public function getInstruksiPembayaran(
         string $code,
-        string $payCode,
-        string $amount,
+        string $payCode = null,
+        string $amount = null,
         int $allowHtml = 1
     ): Collection {
         $data = [
@@ -68,7 +68,7 @@ class Tripay
      * @return Collection
      * @link https://tripay.co.id/developer?tab=merchant-payment-channel
      */
-    public function getChannelPembayaran(string $code): Collection
+    public function getChannelPembayaran(string $code = null): Collection
     {
         $result = $this->httpClient->sendRequest('GET', 'merchant/payment-channel', [
             'code' => $code
@@ -78,12 +78,12 @@ class Tripay
     }
 
     /**
-     * @param string $code
      * @param int $amount
+     * @param string $code
      * @return Collection
      * @link https://tripay.co.id/developer?tab=merchant-fee-calculator
      */
-    public function getBiayaTransaksi(string $code, int $amount): Collection
+    public function getBiayaTransaksi(int $amount, string $code = null): Collection
     {
         $data = [
             'code' => $code,
@@ -113,7 +113,7 @@ class Tripay
         ]);
 
         if ($validator->fails()) {
-            throw new ValidationException($validator);
+            throw new TripayValidationException($validator);
         }
 
         $result = $this->httpClient->sendRequest('GET', 'merchant/transactions', $validator->validate());

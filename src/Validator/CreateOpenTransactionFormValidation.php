@@ -3,14 +3,14 @@
 namespace Nekoding\Tripay\Validator;
 
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\ValidationException;
+use Nekoding\Tripay\Exceptions\TripayValidationException;
 
 class CreateOpenTransactionFormValidation implements Validation
 {
     /**
      * @param array $data
      * @return array
-     * @throws ValidationException
+     * @throws TripayValidationException
      */
     public static function validate(array $data): array
     {
@@ -22,7 +22,7 @@ class CreateOpenTransactionFormValidation implements Validation
         ]);
 
         if ($validator->fails()) {
-            throw new ValidationException($validator);
+            throw new TripayValidationException($validator);
         }
 
         return  $validator->validate();

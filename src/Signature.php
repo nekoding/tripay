@@ -22,6 +22,7 @@ class Signature
      */
     public static function generate(string $data): string
     {
+        $data = config('tripay.tripay_merchant_code') . $data;
         return hash_hmac(
             'sha256',
             $data,
