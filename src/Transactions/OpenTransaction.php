@@ -47,7 +47,7 @@ class OpenTransaction implements Transaction
         $validated = CreateOpenTransactionFormValidation::validate($data);
 
         if (!Signature::validate(
-            $this->setSignatureHash($validated['method'] . $validated['merchant_ref']),
+            $this->setSignatureHash($validated),
             $validated['signature']
         )) {
             throw new InvalidSignatureHashException("siganture hash salah. silahkan coba lagi.");
@@ -85,20 +85,18 @@ class OpenTransaction implements Transaction
     }
 
     /**
-     * @param string $data
+     * @param array $data
      * @return string
      * @throws \Nekoding\Tripay\Exceptions\InvalidCredentialException
      */
-    public function setSignatureHash(string $data): string
+    public function setSignatureHash(array $data): string
     {
 
-        $merchantCode = config('tripay.tripay_merchant_code');
-
-        if (!!$merchantCode) {
-            return $merchantCode . $data;
+        if (isset($data['method']) && isset($data['merchant_ref'])) {
+            return $data['method'] . $data['merchant_ref'];
         }
 
-        throw new InvalidCredentialException("gagal melakukan hash. merchant code belum dikonfigurasi.");
+        throw new InvalidCredentialException("gagal melakukan hash. data method atau merchant_ref belum dikonfigurasi.");
     }
 
     /**

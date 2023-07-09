@@ -1,0 +1,33 @@
+{
+  "success": true,
+  "message": "",
+  "data": [
+    {
+      "title": "Internet Banking",
+      "steps": [
+        "Login ke internet banking Bank BRI Anda",
+        "Pilih menu <b>Pembayaran</b> lalu klik menu <b>BRIVA</b>",
+        "Pilih rekening sumber dan masukkan Kode Bayar (<b>{{pay_code}}</b>) lalu klik <b>Kirim</b>",
+        "Detail transaksi akan ditampilkan, pastikan data sudah sesuai",
+        "Masukkan kata sandi ibanking lalu klik <b>Request</b> untuk mengirim m-PIN ke nomor HP Anda",
+        "Periksa HP Anda dan masukkan m-PIN yang diterima lalu klik <b>Kirim</b>",
+        "Transaksi sukses, simpan bukti transaksi Anda"
+      ]
+    },
+    {
+      "title": "Aplikasi BRImo",
+      "steps": [
+        "Login ke aplikasi BRImo Anda",
+        "Pilih menu <b>BRIVA</b>",
+        "Pilih sumber dana dan masukkan Nomor Pembayaran (<b>{{pay_code}}</b>) lalu klik <b>Lanjut</b>",
+        "Klik <b>Lanjut</b>",
+        "Detail transaksi akan ditampilkan, pastikan data sudah sesuai",
+        "Klik <b>Konfirmasi</b>",
+        "Klik <b>Lanjut</b>",
+        "Masukkan kata sandi ibanking Anda",
+        "Klik <b>Lanjut</b>",
+        "Transaksi sukses, simpan bukti transaksi Anda"
+      ]
+    }
+  ]
+}

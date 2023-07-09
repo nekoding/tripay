@@ -41,9 +41,9 @@ class HttpClient
         }
 
         $this->client = new Client([
-            'base_uri'  => config('tripay.tripay_api_production') ? 
-                            $this->productionURL : 
-                            $this->sandboxURL,
+            'base_uri'  => config('tripay.tripay_api_production') ?
+                $this->productionURL :
+                $this->sandboxURL,
             'headers'   => [
                 'Authorization' => 'Bearer ' . $apiKey
             ]
@@ -57,7 +57,7 @@ class HttpClient
      * @return string
      * @throws Exception
      */
-    public function sendRequest(string $method = 'GET', string $endpoint, array $data)
+    public function sendRequest(string $method, string $endpoint, array $data)
     {
         if ($method == self::HTTP_GET) {
             return $this->sendGetRequest($endpoint, $data);
@@ -67,7 +67,7 @@ class HttpClient
             return $this->sendPostRequest($endpoint, $data);
         }
 
-        throw new InvalidArgumentException("http method ${$method} tidak didukung.");
+        throw new InvalidArgumentException(sprintf("http method %s tidak didukung.", $method));
     }
 
     /**

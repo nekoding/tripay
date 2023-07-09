@@ -1,0 +1,14 @@
+{
+  "success": true,
+  "message": "",
+  "data": {
+    "uuid": "T0001OP9376HnpS",
+    "merchant_ref": "INV345678",
+    "customer_name": "Nama Pelanggan",
+    "payment_name": "BCA Virtual Account",
+    "payment_method": "BCAVA",
+    "pay_code": "1234567890",
+    "qr_string": null,
+    "qr_url": null
+  }
+}

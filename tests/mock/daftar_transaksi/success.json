@@ -1,0 +1,53 @@
+{
+  "success": true,
+  "message": "Success",
+  "data": [
+    {
+      "reference": "T015100000358440000",
+      "merchant_ref": "INV123",
+      "payment_selection_type": "static",
+      "payment_method": "MYBVA",
+      "payment_name": "Maybank Virtual Account",
+      "customer_name": "Nama Customer",
+      "customer_email": "emailcustomer@gmail.com",
+      "customer_phone": null,
+      "callback_url": null,
+      "return_url": null,
+      "amount": 153750,
+      "fee_merchant": 3750,
+      "fee_customer": 0,
+      "total_fee": 3750,
+      "amount_received": 150000,
+      "pay_code": 45649878666155,
+      "pay_url": null,
+      "checkout_url": "https://tripay.co.id/checkout/T015100000358440000",
+      "order_items": [
+        {
+          "sku": null,
+          "name": "T-Shirt",
+          "price": 150000,
+          "quantity": 1,
+          "subtotal": 150000
+        }
+      ],
+      "status": "UNPAID",
+      "note": null,
+      "created_at": 1592381058,
+      "expired_at": 1592388303,
+      "paid_at": null
+    }
+  ],
+  "pagination": {
+    "sort": "desc",
+    "offset": {
+      "from": 1,
+      "to": 1
+    },
+    "current_page": 1,
+    "previous_page": null,
+    "next_page": null,
+    "last_page": 1,
+    "per_page": 25,
+    "total_records": 1
+  }
+}
